@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package inventoryService;
+
+import "book.proto";
+
+service inventoryService{
+
+    // Hint: think of a response format that doesn’t include an object
+    rpc CreateBook(CreateBookInput) returns (CreateBookResponse) {}
+
+}
+
+message CreateBookInput{
+    books.Book book = 1;
+}
+
+message CreateBookResponse{
+    int32 status = 1;
+    string message = 2;
+}

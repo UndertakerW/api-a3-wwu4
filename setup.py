@@ -11,6 +11,8 @@ def generate_proto_code():
     proto_it = pathlib.Path().glob(proto_interface_dir + "/**/*.proto")
     proto_path = "generated=" + proto_interface_dir
     protos = [str(proto) for proto in proto_it if proto.is_file()]
+    for p in protos:
+        print(p)
     check_call(["protoc"] + protos + ["--python_out", out_folder, "--proto_path", proto_path])
 
 from setuptools.command.develop import develop
