@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package inventoryItems;
+
+import "./book.proto";
+
+enum Status {
+    AVAILABLE = 0;
+    TAKEN = 1;
+}
+
+message InventoryItem {
+//    i. inventory number - kind of, a primary key
+    string inventoryNumber = 1;
+//    ii. a Oneof field, which can only refer to a Book object. In the future extensions, we might
+//    add more supported types.
+    Book.Book book = 2;
+//    iii. status - an enum of “available”, “taken”
+    Status status = 3;
+}
