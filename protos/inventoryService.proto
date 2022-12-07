@@ -4,7 +4,7 @@ package inventoryService;
 
 import "book.proto";
 
-service inventoryService{
+service InventoryService{
 
     // Hint: think of a response format that doesn’t include an object
     rpc CreateBook(CreateBookInput) returns (CreateBookResponse) {}

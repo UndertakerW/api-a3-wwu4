@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x16inventoryService.proto\x12\x10inventoryService\x1a\nbook.proto\",\n\x0f\x43reateBookInput\x12\x19\n\x04\x62ook\x18\x01 \x01(\x0b\x32\x0b.books.Book\"5\n\x12\x43reateBookResponse\x12\x0e\n\x06status\x18\x01 \x01(\x05\x12\x0f\n\x07message\x18\x02 \x01(\t2k\n\x10inventoryService\x12W\n\nCreateBook\x12!.inventoryService.CreateBookInput\x1a$.inventoryService.CreateBookResponse\"\x00\x62\x06proto3'
+  serialized_pb=b'\n\x16inventoryService.proto\x12\x10inventoryService\x1a\nbook.proto\",\n\x0f\x43reateBookInput\x12\x19\n\x04\x62ook\x18\x01 \x01(\x0b\x32\x0b.books.Book\"5\n\x12\x43reateBookResponse\x12\x0e\n\x06status\x18\x01 \x01(\x05\x12\x0f\n\x07message\x18\x02 \x01(\t2k\n\x10InventoryService\x12W\n\nCreateBook\x12!.inventoryService.CreateBookInput\x1a$.inventoryService.CreateBookResponse\"\x00\x62\x06proto3'
   ,
   dependencies=[book__pb2.DESCRIPTOR,])
 
@@ -119,8 +119,8 @@ _sym_db.RegisterMessage(CreateBookResponse)
 
 
 _INVENTORYSERVICE = _descriptor.ServiceDescriptor(
-  name='inventoryService',
-  full_name='inventoryService.inventoryService',
+  name='InventoryService',
+  full_name='inventoryService.InventoryService',
   file=DESCRIPTOR,
   index=0,
   serialized_options=None,
@@ -130,7 +130,7 @@ _INVENTORYSERVICE = _descriptor.ServiceDescriptor(
   methods=[
   _descriptor.MethodDescriptor(
     name='CreateBook',
-    full_name='inventoryService.inventoryService.CreateBook',
+    full_name='inventoryService.InventoryService.CreateBook',
     index=0,
     containing_service=None,
     input_type=_CREATEBOOKINPUT,
@@ -141,6 +141,6 @@ _INVENTORYSERVICE = _descriptor.ServiceDescriptor(
 ])
 _sym_db.RegisterServiceDescriptor(_INVENTORYSERVICE)
 
-DESCRIPTOR.services_by_name['inventoryService'] = _INVENTORYSERVICE
+DESCRIPTOR.services_by_name['InventoryService'] = _INVENTORYSERVICE
 
 # @@protoc_insertion_point(module_scope)
