@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package books;
+
+enum Genre {
+    GEN0 = 0;
+    GEN1 = 1;
+    GEN2 = 2;
+    GEN3 = 3;
+}
+
+message Book {
+//    i. ISBN - a unique string id (a primary key)
+    string isbn = 1;
+//    ii. title - a string
+    string title = 2;
+//    iii. author - a string name, for simplicity (normally a separate PB)
+    string author = 3;
+//    iv. genre (an enum field, come up with a list of 3-4)
+    Genre genre = 4;
+//    v. publishing year - an integer
+    int32 year = 5;
+}
