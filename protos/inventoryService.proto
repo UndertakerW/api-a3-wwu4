@@ -5,17 +5,28 @@ package inventoryService;
 import "book.proto";
 
 service InventoryService{
+//    a. CreateBook - self-explanatory
+//    Hint: think of a response format that doesn’t include an object
+    rpc CreateBook(CreateBookRequest) returns (CreateBookResponse) {}
 
-    // Hint: think of a response format that doesn’t include an object
-    rpc CreateBook(CreateBookInput) returns (CreateBookResponse) {}
+//    b. GetBook - given ISBN, retrieve book details
+    rpc GetBook(GetBookRequest) returns (CreateBookResponse) {}
 
 }
 
-message CreateBookInput{
+message CreateBookRequest{
     books.Book book = 1;
 }
 
 message CreateBookResponse{
     int32 status = 1;
     string message = 2;
+}
+
+message GetBookRequest{
+    string isbn = 1;
+}
+
+message GetBookResponse{
+    books.Book book = 1;
 }

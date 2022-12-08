@@ -4,7 +4,7 @@ from subprocess import check_call
 
 def generate_proto_code():
     proto_interface_dir = "./protos"
-    generated_src_dir = "./generated/"
+    generated_src_dir = "./service/"
     if not os.path.exists(generated_src_dir):
         os.mkdir(generated_src_dir)
     proto_it = pathlib.Path().glob(proto_interface_dir + "/**/*.proto")
