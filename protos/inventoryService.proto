@@ -4,6 +4,15 @@ package inventoryService;
 
 import "book.proto";
 
+enum Status {
+    SUCCESS = 0;
+    ISBN_ERROR = 1;
+    TITLE_ERROR = 2;
+    AUTHOR_ERROR = 3;
+    GENRE_ERROR = 4;
+    YEAR_ERROR = 5;
+}
+
 service InventoryService{
 //    a. CreateBook - self-explanatory
 //    Hint: think of a response format that doesn’t include an object
@@ -19,7 +28,7 @@ message CreateBookRequest{
 }
 
 message CreateBookResponse{
-    int32 status = 1;
+    Status status = 1;
     string message = 2;
 }
 
