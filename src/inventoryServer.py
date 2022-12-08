@@ -20,9 +20,28 @@ import service.inventoryItem_pb2
 import service.inventoryService_pb2
 import service.inventoryService_pb2_grpc
 
+import db
+
 class InventoryService(service.inventoryService_pb2_grpc.InventoryServiceServicer):
 
     def CreateBook(self, request, context):
+
+        if request.book.isbn in db.books:
+            return service.inventoryService_pb2.CreateBookResponse(
+                status=service.inventoryService_pb2.CreateBookStatus.ISBN_ERROR,
+                message='[Error] ISBN %s exists.' % request.book.isbn
+            )
+
+        newBook = db.BookClass()
+        newBook.isbn = request.book.isbn
+        newBook.year = request.book.year
+        newBook.author = request.book.author
+        newBook.genre = request.book.genre
+        newBook.title = request.book.title
+        db.books[request.book.isbn] = newBook
+
+        #print(db.books[request.book.isbn])
+
         return service.inventoryService_pb2.CreateBookResponse(
             status=service.inventoryService_pb2.CreateBookStatus.SUCCESS,
             message='Book with ISBN %s created successfully.' % request.book.isbn

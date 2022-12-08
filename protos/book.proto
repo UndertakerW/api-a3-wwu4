@@ -3,10 +3,11 @@ syntax = "proto3";
 package books;
 
 enum Genre {
-    GEN0 = 0;
+    UNDEFINED = 0;
     GEN1 = 1;
     GEN2 = 2;
     GEN3 = 3;
+    GEN4 = 4;
 }
 
 message Book {

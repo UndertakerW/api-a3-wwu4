@@ -21,7 +21,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x16inventoryService.proto\x12\x10inventoryService\x1a\nbook.proto\".\n\x11\x43reateBookRequest\x12\x19\n\x04\x62ook\x18\x01 \x01(\x0b\x32\x0b.books.Book\"Y\n\x12\x43reateBookResponse\x12\x32\n\x06status\x18\x01 \x01(\x0e\x32\".inventoryService.CreateBookStatus\x12\x0f\n\x07message\x18\x02 \x01(\t\"\x1e\n\x0eGetBookRequest\x12\x0c\n\x04isbn\x18\x01 \x01(\t\",\n\x0fGetBookResponse\x12\x19\n\x04\x62ook\x18\x01 \x01(\x0b\x32\x0b.books.Book*s\n\x10\x43reateBookStatus\x12\x0b\n\x07SUCCESS\x10\x00\x12\x0e\n\nISBN_ERROR\x10\x01\x12\x0f\n\x0bTITLE_ERROR\x10\x02\x12\x10\n\x0c\x41UTHOR_ERROR\x10\x03\x12\x0f\n\x0bGENRE_ERROR\x10\x04\x12\x0e\n\nYEAR_ERROR\x10\x05\x32\xc2\x01\n\x10InventoryService\x12Y\n\nCreateBook\x12#.inventoryService.CreateBookRequest\x1a$.inventoryService.CreateBookResponse\"\x00\x12S\n\x07GetBook\x12 .inventoryService.GetBookRequest\x1a$.inventoryService.CreateBookResponse\"\x00\x62\x06proto3'
+  serialized_pb=b'\n\x16inventoryService.proto\x12\x10inventoryService\x1a\nbook.proto\".\n\x11\x43reateBookRequest\x12\x19\n\x04\x62ook\x18\x01 \x01(\x0b\x32\x0b.books.Book\"Y\n\x12\x43reateBookResponse\x12\x32\n\x06status\x18\x01 \x01(\x0e\x32\".inventoryService.CreateBookStatus\x12\x0f\n\x07message\x18\x02 \x01(\t\"\x1e\n\x0eGetBookRequest\x12\x0c\n\x04isbn\x18\x01 \x01(\t\",\n\x0fGetBookResponse\x12\x19\n\x04\x62ook\x18\x01 \x01(\x0b\x32\x0b.books.Book*\x82\x01\n\x10\x43reateBookStatus\x12\r\n\tUNDEFINED\x10\x00\x12\x0b\n\x07SUCCESS\x10\x01\x12\x0e\n\nISBN_ERROR\x10\x02\x12\x0f\n\x0bTITLE_ERROR\x10\x03\x12\x10\n\x0c\x41UTHOR_ERROR\x10\x04\x12\x0f\n\x0bGENRE_ERROR\x10\x05\x12\x0e\n\nYEAR_ERROR\x10\x06\x32\xc2\x01\n\x10InventoryService\x12Y\n\nCreateBook\x12#.inventoryService.CreateBookRequest\x1a$.inventoryService.CreateBookResponse\"\x00\x12S\n\x07GetBook\x12 .inventoryService.GetBookRequest\x1a$.inventoryService.CreateBookResponse\"\x00\x62\x06proto3'
   ,
   dependencies=[book__pb2.DESCRIPTOR,])
 
@@ -33,50 +33,56 @@ _CREATEBOOKSTATUS = _descriptor.EnumDescriptor(
   create_key=_descriptor._internal_create_key,
   values=[
     _descriptor.EnumValueDescriptor(
-      name='SUCCESS', index=0, number=0,
+      name='UNDEFINED', index=0, number=0,
       serialized_options=None,
       type=None,
       create_key=_descriptor._internal_create_key),
     _descriptor.EnumValueDescriptor(
-      name='ISBN_ERROR', index=1, number=1,
+      name='SUCCESS', index=1, number=1,
       serialized_options=None,
       type=None,
       create_key=_descriptor._internal_create_key),
     _descriptor.EnumValueDescriptor(
-      name='TITLE_ERROR', index=2, number=2,
+      name='ISBN_ERROR', index=2, number=2,
       serialized_options=None,
       type=None,
       create_key=_descriptor._internal_create_key),
     _descriptor.EnumValueDescriptor(
-      name='AUTHOR_ERROR', index=3, number=3,
+      name='TITLE_ERROR', index=3, number=3,
       serialized_options=None,
       type=None,
       create_key=_descriptor._internal_create_key),
     _descriptor.EnumValueDescriptor(
-      name='GENRE_ERROR', index=4, number=4,
+      name='AUTHOR_ERROR', index=4, number=4,
       serialized_options=None,
       type=None,
       create_key=_descriptor._internal_create_key),
     _descriptor.EnumValueDescriptor(
-      name='YEAR_ERROR', index=5, number=5,
+      name='GENRE_ERROR', index=5, number=5,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='YEAR_ERROR', index=6, number=6,
       serialized_options=None,
       type=None,
       create_key=_descriptor._internal_create_key),
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=273,
-  serialized_end=388,
+  serialized_start=274,
+  serialized_end=404,
 )
 _sym_db.RegisterEnumDescriptor(_CREATEBOOKSTATUS)
 
 CreateBookStatus = enum_type_wrapper.EnumTypeWrapper(_CREATEBOOKSTATUS)
-SUCCESS = 0
-ISBN_ERROR = 1
-TITLE_ERROR = 2
-AUTHOR_ERROR = 3
-GENRE_ERROR = 4
-YEAR_ERROR = 5
+UNDEFINED = 0
+SUCCESS = 1
+ISBN_ERROR = 2
+TITLE_ERROR = 3
+AUTHOR_ERROR = 4
+GENRE_ERROR = 5
+YEAR_ERROR = 6
 
 
 
@@ -261,8 +267,8 @@ _INVENTORYSERVICE = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=391,
-  serialized_end=585,
+  serialized_start=407,
+  serialized_end=601,
   methods=[
   _descriptor.MethodDescriptor(
     name='CreateBook',

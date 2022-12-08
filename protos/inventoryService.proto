@@ -5,12 +5,13 @@ package inventoryService;
 import "book.proto";
 
 enum CreateBookStatus {
-    SUCCESS = 0;
-    ISBN_ERROR = 1;
-    TITLE_ERROR = 2;
-    AUTHOR_ERROR = 3;
-    GENRE_ERROR = 4;
-    YEAR_ERROR = 5;
+    UNDEFINED = 0;
+    SUCCESS = 1;
+    ISBN_ERROR = 2;
+    TITLE_ERROR = 3;
+    AUTHOR_ERROR = 4;
+    GENRE_ERROR = 5;
+    YEAR_ERROR = 6;
 }
 
 service InventoryService{

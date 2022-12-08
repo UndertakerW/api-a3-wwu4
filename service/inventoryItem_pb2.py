@@ -21,7 +21,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x13inventoryItem.proto\x12\x0einventoryItems\x1a\nbook.proto\"k\n\rInventoryItem\x12\x17\n\x0finventoryNumber\x18\x01 \x01(\t\x12\x19\n\x04\x62ook\x18\x02 \x01(\x0b\x32\x0b.books.Book\x12&\n\x06status\x18\x03 \x01(\x0e\x32\x16.inventoryItems.Status*\"\n\x06Status\x12\r\n\tAVAILABLE\x10\x00\x12\t\n\x05TAKEN\x10\x01\x62\x06proto3'
+  serialized_pb=b'\n\x13inventoryItem.proto\x12\x0einventoryItems\x1a\nbook.proto\"k\n\rInventoryItem\x12\x17\n\x0finventoryNumber\x18\x01 \x01(\t\x12\x19\n\x04\x62ook\x18\x02 \x01(\x0b\x32\x0b.books.Book\x12&\n\x06status\x18\x03 \x01(\x0e\x32\x16.inventoryItems.Status*1\n\x06Status\x12\r\n\tUNDEFINED\x10\x00\x12\r\n\tAVAILABLE\x10\x01\x12\t\n\x05TAKEN\x10\x02\x62\x06proto3'
   ,
   dependencies=[book__pb2.DESCRIPTOR,])
 
@@ -33,12 +33,17 @@ _STATUS = _descriptor.EnumDescriptor(
   create_key=_descriptor._internal_create_key,
   values=[
     _descriptor.EnumValueDescriptor(
-      name='AVAILABLE', index=0, number=0,
+      name='UNDEFINED', index=0, number=0,
       serialized_options=None,
       type=None,
       create_key=_descriptor._internal_create_key),
     _descriptor.EnumValueDescriptor(
-      name='TAKEN', index=1, number=1,
+      name='AVAILABLE', index=1, number=1,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='TAKEN', index=2, number=2,
       serialized_options=None,
       type=None,
       create_key=_descriptor._internal_create_key),
@@ -46,13 +51,14 @@ _STATUS = _descriptor.EnumDescriptor(
   containing_type=None,
   serialized_options=None,
   serialized_start=160,
-  serialized_end=194,
+  serialized_end=209,
 )
 _sym_db.RegisterEnumDescriptor(_STATUS)
 
 Status = enum_type_wrapper.EnumTypeWrapper(_STATUS)
-AVAILABLE = 0
-TAKEN = 1
+UNDEFINED = 0
+AVAILABLE = 1
+TAKEN = 2
 
 
 

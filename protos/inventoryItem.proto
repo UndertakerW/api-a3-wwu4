@@ -5,8 +5,9 @@ package inventoryItems;
 import "book.proto";
 
 enum Status {
-    AVAILABLE = 0;
-    TAKEN = 1;
+    UNDEFINED = 0;
+    AVAILABLE = 1;
+    TAKEN = 2;
 }
 
 message InventoryItem {
