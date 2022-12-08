@@ -15,14 +15,14 @@ class InventoryServiceStub(object):
             channel: A grpc.Channel.
         """
         self.CreateBook = channel.unary_unary(
-                '/inventoryService.InventoryService/CreateBook',
+                '/InventoryService/CreateBook',
                 request_serializer=inventoryService__pb2.CreateBookRequest.SerializeToString,
                 response_deserializer=inventoryService__pb2.CreateBookResponse.FromString,
                 )
         self.GetBook = channel.unary_unary(
-                '/inventoryService.InventoryService/GetBook',
+                '/InventoryService/GetBook',
                 request_serializer=inventoryService__pb2.GetBookRequest.SerializeToString,
-                response_deserializer=inventoryService__pb2.CreateBookResponse.FromString,
+                response_deserializer=inventoryService__pb2.GetBookResponse.FromString,
                 )
 
 
@@ -55,11 +55,11 @@ def add_InventoryServiceServicer_to_server(servicer, server):
             'GetBook': grpc.unary_unary_rpc_method_handler(
                     servicer.GetBook,
                     request_deserializer=inventoryService__pb2.GetBookRequest.FromString,
-                    response_serializer=inventoryService__pb2.CreateBookResponse.SerializeToString,
+                    response_serializer=inventoryService__pb2.GetBookResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-            'inventoryService.InventoryService', rpc_method_handlers)
+            'InventoryService', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
 
 
@@ -78,7 +78,7 @@ class InventoryService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/inventoryService.InventoryService/CreateBook',
+        return grpc.experimental.unary_unary(request, target, '/InventoryService/CreateBook',
             inventoryService__pb2.CreateBookRequest.SerializeToString,
             inventoryService__pb2.CreateBookResponse.FromString,
             options, channel_credentials,
@@ -95,8 +95,8 @@ class InventoryService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/inventoryService.InventoryService/GetBook',
+        return grpc.experimental.unary_unary(request, target, '/InventoryService/GetBook',
             inventoryService__pb2.GetBookRequest.SerializeToString,
-            inventoryService__pb2.CreateBookResponse.FromString,
+            inventoryService__pb2.GetBookResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

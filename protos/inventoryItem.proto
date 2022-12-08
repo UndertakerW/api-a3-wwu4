@@ -1,13 +1,11 @@
 syntax = "proto3";
 
-package inventoryItems;
-
 import "book.proto";
 
-enum Status {
-    UNDEFINED = 0;
-    AVAILABLE = 1;
-    TAKEN = 2;
+enum ItemStatus {
+    ITEM_UNDEFINED = 0;
+    ITEM_AVAILABLE = 1;
+    ITEM_TAKEN = 2;
 }
 
 message InventoryItem {
@@ -15,7 +13,7 @@ message InventoryItem {
     string inventoryNumber = 1;
 //    ii. a Oneof field, which can only refer to a Book object. In the future extensions, we might
 //    add more supported types.
-    books.Book book = 2;
+    Book book = 2;
 //    iii. status - an enum of “available”, “taken”
-    Status status = 3;
+    ItemStatus status = 3;
 }

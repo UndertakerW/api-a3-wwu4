@@ -1,7 +1,5 @@
 syntax = "proto3";
 
-package books;
-
 enum Genre {
     UNDEFINED = 0;
     GEN1 = 1;

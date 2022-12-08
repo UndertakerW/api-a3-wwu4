@@ -17,85 +17,85 @@ import book_pb2 as book__pb2
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='inventoryService.proto',
-  package='inventoryService',
+  package='',
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x16inventoryService.proto\x12\x10inventoryService\x1a\nbook.proto\".\n\x11\x43reateBookRequest\x12\x19\n\x04\x62ook\x18\x01 \x01(\x0b\x32\x0b.books.Book\"Y\n\x12\x43reateBookResponse\x12\x32\n\x06status\x18\x01 \x01(\x0e\x32\".inventoryService.CreateBookStatus\x12\x0f\n\x07message\x18\x02 \x01(\t\"\x1e\n\x0eGetBookRequest\x12\x0c\n\x04isbn\x18\x01 \x01(\t\",\n\x0fGetBookResponse\x12\x19\n\x04\x62ook\x18\x01 \x01(\x0b\x32\x0b.books.Book*\x82\x01\n\x10\x43reateBookStatus\x12\r\n\tUNDEFINED\x10\x00\x12\x0b\n\x07SUCCESS\x10\x01\x12\x0e\n\nISBN_ERROR\x10\x02\x12\x0f\n\x0bTITLE_ERROR\x10\x03\x12\x10\n\x0c\x41UTHOR_ERROR\x10\x04\x12\x0f\n\x0bGENRE_ERROR\x10\x05\x12\x0e\n\nYEAR_ERROR\x10\x06\x32\xc2\x01\n\x10InventoryService\x12Y\n\nCreateBook\x12#.inventoryService.CreateBookRequest\x1a$.inventoryService.CreateBookResponse\"\x00\x12S\n\x07GetBook\x12 .inventoryService.GetBookRequest\x1a$.inventoryService.CreateBookResponse\"\x00\x62\x06proto3'
+  serialized_pb=b'\n\x16inventoryService.proto\x1a\nbook.proto\"(\n\x11\x43reateBookRequest\x12\x13\n\x04\x62ook\x18\x01 \x01(\x0b\x32\x05.Book\"E\n\x12\x43reateBookResponse\x12\x1e\n\x06status\x18\x01 \x01(\x0e\x32\x0e.ServiceStatus\x12\x0f\n\x07message\x18\x02 \x01(\t\"\x1e\n\x0eGetBookRequest\x12\x0c\n\x04isbn\x18\x01 \x01(\t\"W\n\x0fGetBookResponse\x12\x1e\n\x06status\x18\x01 \x01(\x0e\x32\x0e.ServiceStatus\x12\x0f\n\x07message\x18\x02 \x01(\t\x12\x13\n\x04\x62ook\x18\x03 \x01(\x0b\x32\x05.Book*\xb7\x01\n\rServiceStatus\x12\x15\n\x11SERVICE_UNDEFINED\x10\x00\x12\x13\n\x0fSERVICE_SUCCESS\x10\x01\x12\x16\n\x12SERVICE_ISBN_ERROR\x10\x02\x12\x17\n\x13SERVICE_TITLE_ERROR\x10\x03\x12\x18\n\x14SERVICE_AUTHOR_ERROR\x10\x04\x12\x17\n\x13SERVICE_GENRE_ERROR\x10\x05\x12\x16\n\x12SERVICE_YEAR_ERROR\x10\x06\x32{\n\x10InventoryService\x12\x37\n\nCreateBook\x12\x12.CreateBookRequest\x1a\x13.CreateBookResponse\"\x00\x12.\n\x07GetBook\x12\x0f.GetBookRequest\x1a\x10.GetBookResponse\"\x00\x62\x06proto3'
   ,
   dependencies=[book__pb2.DESCRIPTOR,])
 
-_CREATEBOOKSTATUS = _descriptor.EnumDescriptor(
-  name='CreateBookStatus',
-  full_name='inventoryService.CreateBookStatus',
+_SERVICESTATUS = _descriptor.EnumDescriptor(
+  name='ServiceStatus',
+  full_name='ServiceStatus',
   filename=None,
   file=DESCRIPTOR,
   create_key=_descriptor._internal_create_key,
   values=[
     _descriptor.EnumValueDescriptor(
-      name='UNDEFINED', index=0, number=0,
+      name='SERVICE_UNDEFINED', index=0, number=0,
       serialized_options=None,
       type=None,
       create_key=_descriptor._internal_create_key),
     _descriptor.EnumValueDescriptor(
-      name='SUCCESS', index=1, number=1,
+      name='SERVICE_SUCCESS', index=1, number=1,
       serialized_options=None,
       type=None,
       create_key=_descriptor._internal_create_key),
     _descriptor.EnumValueDescriptor(
-      name='ISBN_ERROR', index=2, number=2,
+      name='SERVICE_ISBN_ERROR', index=2, number=2,
       serialized_options=None,
       type=None,
       create_key=_descriptor._internal_create_key),
     _descriptor.EnumValueDescriptor(
-      name='TITLE_ERROR', index=3, number=3,
+      name='SERVICE_TITLE_ERROR', index=3, number=3,
       serialized_options=None,
       type=None,
       create_key=_descriptor._internal_create_key),
     _descriptor.EnumValueDescriptor(
-      name='AUTHOR_ERROR', index=4, number=4,
+      name='SERVICE_AUTHOR_ERROR', index=4, number=4,
       serialized_options=None,
       type=None,
       create_key=_descriptor._internal_create_key),
     _descriptor.EnumValueDescriptor(
-      name='GENRE_ERROR', index=5, number=5,
+      name='SERVICE_GENRE_ERROR', index=5, number=5,
       serialized_options=None,
       type=None,
       create_key=_descriptor._internal_create_key),
     _descriptor.EnumValueDescriptor(
-      name='YEAR_ERROR', index=6, number=6,
+      name='SERVICE_YEAR_ERROR', index=6, number=6,
       serialized_options=None,
       type=None,
       create_key=_descriptor._internal_create_key),
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=274,
-  serialized_end=404,
+  serialized_start=273,
+  serialized_end=456,
 )
-_sym_db.RegisterEnumDescriptor(_CREATEBOOKSTATUS)
+_sym_db.RegisterEnumDescriptor(_SERVICESTATUS)
 
-CreateBookStatus = enum_type_wrapper.EnumTypeWrapper(_CREATEBOOKSTATUS)
-UNDEFINED = 0
-SUCCESS = 1
-ISBN_ERROR = 2
-TITLE_ERROR = 3
-AUTHOR_ERROR = 4
-GENRE_ERROR = 5
-YEAR_ERROR = 6
+ServiceStatus = enum_type_wrapper.EnumTypeWrapper(_SERVICESTATUS)
+SERVICE_UNDEFINED = 0
+SERVICE_SUCCESS = 1
+SERVICE_ISBN_ERROR = 2
+SERVICE_TITLE_ERROR = 3
+SERVICE_AUTHOR_ERROR = 4
+SERVICE_GENRE_ERROR = 5
+SERVICE_YEAR_ERROR = 6
 
 
 
 _CREATEBOOKREQUEST = _descriptor.Descriptor(
   name='CreateBookRequest',
-  full_name='inventoryService.CreateBookRequest',
+  full_name='CreateBookRequest',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='book', full_name='inventoryService.CreateBookRequest.book', index=0,
+      name='book', full_name='CreateBookRequest.book', index=0,
       number=1, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -113,28 +113,28 @@ _CREATEBOOKREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=56,
-  serialized_end=102,
+  serialized_start=38,
+  serialized_end=78,
 )
 
 
 _CREATEBOOKRESPONSE = _descriptor.Descriptor(
   name='CreateBookResponse',
-  full_name='inventoryService.CreateBookResponse',
+  full_name='CreateBookResponse',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='status', full_name='inventoryService.CreateBookResponse.status', index=0,
+      name='status', full_name='CreateBookResponse.status', index=0,
       number=1, type=14, cpp_type=8, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='message', full_name='inventoryService.CreateBookResponse.message', index=1,
+      name='message', full_name='CreateBookResponse.message', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -152,21 +152,21 @@ _CREATEBOOKRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=104,
-  serialized_end=193,
+  serialized_start=80,
+  serialized_end=149,
 )
 
 
 _GETBOOKREQUEST = _descriptor.Descriptor(
   name='GetBookRequest',
-  full_name='inventoryService.GetBookRequest',
+  full_name='GetBookRequest',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='isbn', full_name='inventoryService.GetBookRequest.isbn', index=0,
+      name='isbn', full_name='GetBookRequest.isbn', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -184,22 +184,36 @@ _GETBOOKREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=195,
-  serialized_end=225,
+  serialized_start=151,
+  serialized_end=181,
 )
 
 
 _GETBOOKRESPONSE = _descriptor.Descriptor(
   name='GetBookResponse',
-  full_name='inventoryService.GetBookResponse',
+  full_name='GetBookResponse',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='book', full_name='inventoryService.GetBookResponse.book', index=0,
-      number=1, type=11, cpp_type=10, label=1,
+      name='status', full_name='GetBookResponse.status', index=0,
+      number=1, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='message', full_name='GetBookResponse.message', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='book', full_name='GetBookResponse.book', index=2,
+      number=3, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -216,45 +230,46 @@ _GETBOOKRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=227,
-  serialized_end=271,
+  serialized_start=183,
+  serialized_end=270,
 )
 
 _CREATEBOOKREQUEST.fields_by_name['book'].message_type = book__pb2._BOOK
-_CREATEBOOKRESPONSE.fields_by_name['status'].enum_type = _CREATEBOOKSTATUS
+_CREATEBOOKRESPONSE.fields_by_name['status'].enum_type = _SERVICESTATUS
+_GETBOOKRESPONSE.fields_by_name['status'].enum_type = _SERVICESTATUS
 _GETBOOKRESPONSE.fields_by_name['book'].message_type = book__pb2._BOOK
 DESCRIPTOR.message_types_by_name['CreateBookRequest'] = _CREATEBOOKREQUEST
 DESCRIPTOR.message_types_by_name['CreateBookResponse'] = _CREATEBOOKRESPONSE
 DESCRIPTOR.message_types_by_name['GetBookRequest'] = _GETBOOKREQUEST
 DESCRIPTOR.message_types_by_name['GetBookResponse'] = _GETBOOKRESPONSE
-DESCRIPTOR.enum_types_by_name['CreateBookStatus'] = _CREATEBOOKSTATUS
+DESCRIPTOR.enum_types_by_name['ServiceStatus'] = _SERVICESTATUS
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 CreateBookRequest = _reflection.GeneratedProtocolMessageType('CreateBookRequest', (_message.Message,), {
   'DESCRIPTOR' : _CREATEBOOKREQUEST,
   '__module__' : 'inventoryService_pb2'
-  # @@protoc_insertion_point(class_scope:inventoryService.CreateBookRequest)
+  # @@protoc_insertion_point(class_scope:CreateBookRequest)
   })
 _sym_db.RegisterMessage(CreateBookRequest)
 
 CreateBookResponse = _reflection.GeneratedProtocolMessageType('CreateBookResponse', (_message.Message,), {
   'DESCRIPTOR' : _CREATEBOOKRESPONSE,
   '__module__' : 'inventoryService_pb2'
-  # @@protoc_insertion_point(class_scope:inventoryService.CreateBookResponse)
+  # @@protoc_insertion_point(class_scope:CreateBookResponse)
   })
 _sym_db.RegisterMessage(CreateBookResponse)
 
 GetBookRequest = _reflection.GeneratedProtocolMessageType('GetBookRequest', (_message.Message,), {
   'DESCRIPTOR' : _GETBOOKREQUEST,
   '__module__' : 'inventoryService_pb2'
-  # @@protoc_insertion_point(class_scope:inventoryService.GetBookRequest)
+  # @@protoc_insertion_point(class_scope:GetBookRequest)
   })
 _sym_db.RegisterMessage(GetBookRequest)
 
 GetBookResponse = _reflection.GeneratedProtocolMessageType('GetBookResponse', (_message.Message,), {
   'DESCRIPTOR' : _GETBOOKRESPONSE,
   '__module__' : 'inventoryService_pb2'
-  # @@protoc_insertion_point(class_scope:inventoryService.GetBookResponse)
+  # @@protoc_insertion_point(class_scope:GetBookResponse)
   })
 _sym_db.RegisterMessage(GetBookResponse)
 
@@ -262,17 +277,17 @@ _sym_db.RegisterMessage(GetBookResponse)
 
 _INVENTORYSERVICE = _descriptor.ServiceDescriptor(
   name='InventoryService',
-  full_name='inventoryService.InventoryService',
+  full_name='InventoryService',
   file=DESCRIPTOR,
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=407,
-  serialized_end=601,
+  serialized_start=458,
+  serialized_end=581,
   methods=[
   _descriptor.MethodDescriptor(
     name='CreateBook',
-    full_name='inventoryService.InventoryService.CreateBook',
+    full_name='InventoryService.CreateBook',
     index=0,
     containing_service=None,
     input_type=_CREATEBOOKREQUEST,
@@ -282,11 +297,11 @@ _INVENTORYSERVICE = _descriptor.ServiceDescriptor(
   ),
   _descriptor.MethodDescriptor(
     name='GetBook',
-    full_name='inventoryService.InventoryService.GetBook',
+    full_name='InventoryService.GetBook',
     index=1,
     containing_service=None,
     input_type=_GETBOOKREQUEST,
-    output_type=_CREATEBOOKRESPONSE,
+    output_type=_GETBOOKRESPONSE,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
   ),

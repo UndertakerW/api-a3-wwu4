@@ -1,17 +1,15 @@
 syntax = "proto3";
 
-package inventoryService;
-
 import "book.proto";
 
-enum CreateBookStatus {
-    UNDEFINED = 0;
-    SUCCESS = 1;
-    ISBN_ERROR = 2;
-    TITLE_ERROR = 3;
-    AUTHOR_ERROR = 4;
-    GENRE_ERROR = 5;
-    YEAR_ERROR = 6;
+enum ServiceStatus {
+    SERVICE_UNDEFINED = 0;
+    SERVICE_SUCCESS = 1;
+    SERVICE_ISBN_ERROR = 2;
+    SERVICE_TITLE_ERROR = 3;
+    SERVICE_AUTHOR_ERROR = 4;
+    SERVICE_GENRE_ERROR = 5;
+    SERVICE_YEAR_ERROR = 6;
 }
 
 service InventoryService{
@@ -20,16 +18,16 @@ service InventoryService{
     rpc CreateBook(CreateBookRequest) returns (CreateBookResponse) {}
 
 //    b. GetBook - given ISBN, retrieve book details
-    rpc GetBook(GetBookRequest) returns (CreateBookResponse) {}
+    rpc GetBook(GetBookRequest) returns (GetBookResponse) {}
 
 }
 
 message CreateBookRequest{
-    books.Book book = 1;
+    Book book = 1;
 }
 
 message CreateBookResponse{
-    CreateBookStatus status = 1;
+    ServiceStatus status = 1;
     string message = 2;
 }
 
@@ -38,5 +36,7 @@ message GetBookRequest{
 }
 
 message GetBookResponse{
-    books.Book book = 1;
+    ServiceStatus status = 1;
+    string message = 2;
+    Book book = 3;
 }
