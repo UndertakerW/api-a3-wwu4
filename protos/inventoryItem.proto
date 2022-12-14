@@ -11,9 +11,11 @@ enum ItemStatus {
 message InventoryItem {
 //    i. inventory number - kind of, a primary key
     string inventoryNumber = 1;
-//    ii. a Oneof field, which can only refer to a Book object. In the future extensions, we might
-//    add more supported types.
-    Book book = 2;
 //    iii. status - an enum of “available”, “taken”
-    ItemStatus status = 3;
+    ItemStatus status = 2;
+    //    ii. a Oneof field, which can only refer to a Book object. In the future extensions, we might
+//    add more supported types.
+    oneof item {
+        Book book = 3;
+    }
 }

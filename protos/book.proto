@@ -1,11 +1,11 @@
 syntax = "proto3";
 
 enum Genre {
-    UNDEFINED = 0;
-    GEN1 = 1;
-    GEN2 = 2;
-    GEN3 = 3;
-    GEN4 = 4;
+    GEN_UNDEFINED = 0;
+    GEN_1 = 1;
+    GEN_2 = 2;
+    GEN_3 = 3;
+    GEN_4 = 4;
 }
 
 message Book {

@@ -21,7 +21,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x13inventoryItem.proto\x1a\nbook.proto\"Z\n\rInventoryItem\x12\x17\n\x0finventoryNumber\x18\x01 \x01(\t\x12\x13\n\x04\x62ook\x18\x02 \x01(\x0b\x32\x05.Book\x12\x1b\n\x06status\x18\x03 \x01(\x0e\x32\x0b.ItemStatus*D\n\nItemStatus\x12\x12\n\x0eITEM_UNDEFINED\x10\x00\x12\x12\n\x0eITEM_AVAILABLE\x10\x01\x12\x0e\n\nITEM_TAKEN\x10\x02\x62\x06proto3'
+  serialized_pb=b'\n\x13inventoryItem.proto\x1a\nbook.proto\"d\n\rInventoryItem\x12\x17\n\x0finventoryNumber\x18\x01 \x01(\t\x12\x1b\n\x06status\x18\x02 \x01(\x0e\x32\x0b.ItemStatus\x12\x15\n\x04\x62ook\x18\x03 \x01(\x0b\x32\x05.BookH\x00\x42\x06\n\x04item*D\n\nItemStatus\x12\x12\n\x0eITEM_UNDEFINED\x10\x00\x12\x12\n\x0eITEM_AVAILABLE\x10\x01\x12\x0e\n\nITEM_TAKEN\x10\x02\x62\x06proto3'
   ,
   dependencies=[book__pb2.DESCRIPTOR,])
 
@@ -50,8 +50,8 @@ _ITEMSTATUS = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=127,
-  serialized_end=195,
+  serialized_start=137,
+  serialized_end=205,
 )
 _sym_db.RegisterEnumDescriptor(_ITEMSTATUS)
 
@@ -78,16 +78,16 @@ _INVENTORYITEM = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='book', full_name='InventoryItem.book', index=1,
-      number=2, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
+      name='status', full_name='InventoryItem.status', index=1,
+      number=2, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='status', full_name='InventoryItem.status', index=2,
-      number=3, type=14, cpp_type=8, label=1,
-      has_default_value=False, default_value=0,
+      name='book', full_name='InventoryItem.book', index=2,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
@@ -102,13 +102,21 @@ _INVENTORYITEM = _descriptor.Descriptor(
   syntax='proto3',
   extension_ranges=[],
   oneofs=[
+    _descriptor.OneofDescriptor(
+      name='item', full_name='InventoryItem.item',
+      index=0, containing_type=None,
+      create_key=_descriptor._internal_create_key,
+    fields=[]),
   ],
   serialized_start=35,
-  serialized_end=125,
+  serialized_end=135,
 )
 
-_INVENTORYITEM.fields_by_name['book'].message_type = book__pb2._BOOK
 _INVENTORYITEM.fields_by_name['status'].enum_type = _ITEMSTATUS
+_INVENTORYITEM.fields_by_name['book'].message_type = book__pb2._BOOK
+_INVENTORYITEM.oneofs_by_name['item'].fields.append(
+  _INVENTORYITEM.fields_by_name['book'])
+_INVENTORYITEM.fields_by_name['book'].containing_oneof = _INVENTORYITEM.oneofs_by_name['item']
 DESCRIPTOR.message_types_by_name['InventoryItem'] = _INVENTORYITEM
 DESCRIPTOR.enum_types_by_name['ItemStatus'] = _ITEMSTATUS
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)

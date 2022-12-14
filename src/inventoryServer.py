@@ -3,24 +3,17 @@ import logging
 
 import os, sys
 
-# getting the name of the directory
-# where this file is present.
+
 current = os.path.dirname(os.path.realpath(__file__))
-
-# Getting the parent directory name
-# where the current directory is present.
 parent = os.path.dirname(current)
-
-# adding the parent directory to
-# the sys.path.
 sys.path.append(parent)
 
 import grpc
-#import service.book_pb2
-#import service.inventoryItem_pb2
 import service.inventoryService_pb2
 import service.inventoryService_pb2_grpc
 
+# Approach to store data: dictionary with hardcoded data
+# Please see db.py for more details
 import db
 
 port = 50051
@@ -49,7 +42,7 @@ class InventoryService(service.inventoryService_pb2_grpc.InventoryServiceService
                 message='[Error] Book with ISBN %s exists.' % request.book.isbn
             )
 
-        newBook = db.BookClass()
+        newBook = db.BookObject()
         newBook.isbn = request.book.isbn
         newBook.year = request.book.year
         newBook.author = request.book.author

@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\nbook.proto\"X\n\x04\x42ook\x12\x0c\n\x04isbn\x18\x01 \x01(\t\x12\r\n\x05title\x18\x02 \x01(\t\x12\x0e\n\x06\x61uthor\x18\x03 \x01(\t\x12\x15\n\x05genre\x18\x04 \x01(\x0e\x32\x06.Genre\x12\x0c\n\x04year\x18\x05 \x01(\x05*>\n\x05Genre\x12\r\n\tUNDEFINED\x10\x00\x12\x08\n\x04GEN1\x10\x01\x12\x08\n\x04GEN2\x10\x02\x12\x08\n\x04GEN3\x10\x03\x12\x08\n\x04GEN4\x10\x04\x62\x06proto3'
+  serialized_pb=b'\n\nbook.proto\"X\n\x04\x42ook\x12\x0c\n\x04isbn\x18\x01 \x01(\t\x12\r\n\x05title\x18\x02 \x01(\t\x12\x0e\n\x06\x61uthor\x18\x03 \x01(\t\x12\x15\n\x05genre\x18\x04 \x01(\x0e\x32\x06.Genre\x12\x0c\n\x04year\x18\x05 \x01(\x05*F\n\x05Genre\x12\x11\n\rGEN_UNDEFINED\x10\x00\x12\t\n\x05GEN_1\x10\x01\x12\t\n\x05GEN_2\x10\x02\x12\t\n\x05GEN_3\x10\x03\x12\t\n\x05GEN_4\x10\x04\x62\x06proto3'
 )
 
 _GENRE = _descriptor.EnumDescriptor(
@@ -31,27 +31,27 @@ _GENRE = _descriptor.EnumDescriptor(
   create_key=_descriptor._internal_create_key,
   values=[
     _descriptor.EnumValueDescriptor(
-      name='UNDEFINED', index=0, number=0,
+      name='GEN_UNDEFINED', index=0, number=0,
       serialized_options=None,
       type=None,
       create_key=_descriptor._internal_create_key),
     _descriptor.EnumValueDescriptor(
-      name='GEN1', index=1, number=1,
+      name='GEN_1', index=1, number=1,
       serialized_options=None,
       type=None,
       create_key=_descriptor._internal_create_key),
     _descriptor.EnumValueDescriptor(
-      name='GEN2', index=2, number=2,
+      name='GEN_2', index=2, number=2,
       serialized_options=None,
       type=None,
       create_key=_descriptor._internal_create_key),
     _descriptor.EnumValueDescriptor(
-      name='GEN3', index=3, number=3,
+      name='GEN_3', index=3, number=3,
       serialized_options=None,
       type=None,
       create_key=_descriptor._internal_create_key),
     _descriptor.EnumValueDescriptor(
-      name='GEN4', index=4, number=4,
+      name='GEN_4', index=4, number=4,
       serialized_options=None,
       type=None,
       create_key=_descriptor._internal_create_key),
@@ -59,16 +59,16 @@ _GENRE = _descriptor.EnumDescriptor(
   containing_type=None,
   serialized_options=None,
   serialized_start=104,
-  serialized_end=166,
+  serialized_end=174,
 )
 _sym_db.RegisterEnumDescriptor(_GENRE)
 
 Genre = enum_type_wrapper.EnumTypeWrapper(_GENRE)
-UNDEFINED = 0
-GEN1 = 1
-GEN2 = 2
-GEN3 = 3
-GEN4 = 4
+GEN_UNDEFINED = 0
+GEN_1 = 1
+GEN_2 = 2
+GEN_3 = 3
+GEN_4 = 4
 
 
 
