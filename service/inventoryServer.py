@@ -3,20 +3,16 @@ import logging
 
 import os, sys
 
-current = os.path.dirname(os.path.realpath(__file__))
-parent = os.path.dirname(current)
-sys.path.append(parent)
-
 import grpc
-import service.inventoryService_pb2
-import service.inventoryService_pb2_grpc
+import inventoryService_pb2
+import inventoryService_pb2_grpc
 
 # Approach to store data: dictionary with hardcoded data
 # Please see db.py for more details
 import db
 
 
-class InventoryService(service.inventoryService_pb2_grpc.InventoryServiceServicer):
+class InventoryService(inventoryService_pb2_grpc.InventoryServiceServicer):
 
     # Create a book in the inventory
     # request contains:
@@ -26,20 +22,20 @@ class InventoryService(service.inventoryService_pb2_grpc.InventoryServiceService
         # Check the mandatory field book.isbn
 
         if request.book is None:
-            return service.inventoryService_pb2.CreateBookResponse(
-                status=service.inventoryService_pb2.ServiceStatus.SERVICE_ISBN_ERROR,
+            return inventoryService_pb2.CreateBookResponse(
+                status=inventoryService_pb2.ServiceStatus.SERVICE_ISBN_ERROR,
                 message='[Error] Mandatory field ISBN is missing.'
             )
 
         if request.book.isbn is None or len(request.book.isbn) == 0:
-            return service.inventoryService_pb2.CreateBookResponse(
-                status=service.inventoryService_pb2.ServiceStatus.SERVICE_ISBN_ERROR,
+            return inventoryService_pb2.CreateBookResponse(
+                status=inventoryService_pb2.ServiceStatus.SERVICE_ISBN_ERROR,
                 message='[Error] Mandatory field ISBN is missing.'
             )
 
         if request.book.isbn in db.books:
-            return service.inventoryService_pb2.CreateBookResponse(
-                status=service.inventoryService_pb2.ServiceStatus.SERVICE_ISBN_ERROR,
+            return inventoryService_pb2.CreateBookResponse(
+                status=inventoryService_pb2.ServiceStatus.SERVICE_ISBN_ERROR,
                 message='[Error] Book with ISBN %s exists.' % request.book.isbn
             )
 
@@ -53,8 +49,8 @@ class InventoryService(service.inventoryService_pb2_grpc.InventoryServiceService
         db.books[request.book.isbn] = newBook
 
         # Return status and message
-        return service.inventoryService_pb2.CreateBookResponse(
-            status=service.inventoryService_pb2.ServiceStatus.SERVICE_SUCCESS,
+        return inventoryService_pb2.CreateBookResponse(
+            status=inventoryService_pb2.ServiceStatus.SERVICE_SUCCESS,
             message='Book with ISBN %s created successfully.' % request.book.isbn
         )
 
@@ -66,14 +62,14 @@ class InventoryService(service.inventoryService_pb2_grpc.InventoryServiceService
         # Check the mandatory field isbn
 
         if request.isbn is None or len(request.isbn) == 0:
-            return service.inventoryService_pb2.GetBookResponse(
-                status=service.inventoryService_pb2.ServiceStatus.SERVICE_ISBN_ERROR,
+            return inventoryService_pb2.GetBookResponse(
+                status=inventoryService_pb2.ServiceStatus.SERVICE_ISBN_ERROR,
                 message='[Error] Mandatory field ISBN is missing.'
             )
 
         if request.isbn not in db.books:
-            return service.inventoryService_pb2.GetBookResponse(
-                status=service.inventoryService_pb2.ServiceStatus.SERVICE_ISBN_ERROR,
+            return inventoryService_pb2.GetBookResponse(
+                status=inventoryService_pb2.ServiceStatus.SERVICE_ISBN_ERROR,
                 message='[Error] Book with ISBN %s does not exist.' % request.isbn
             )
 
@@ -81,7 +77,7 @@ class InventoryService(service.inventoryService_pb2_grpc.InventoryServiceService
         bookObject = db.books[request.isbn]
 
         # Craft a Book for proto
-        book = service.inventoryService_pb2.book__pb2.Book(
+        book = inventoryService_pb2.book__pb2.Book(
             isbn=request.isbn,
             title=bookObject.title,
             author=bookObject.author,
@@ -90,8 +86,8 @@ class InventoryService(service.inventoryService_pb2_grpc.InventoryServiceService
         )
 
         # Return status, message, and the Book
-        return service.inventoryService_pb2.GetBookResponse(
-            status=service.inventoryService_pb2.ServiceStatus.SERVICE_SUCCESS,
+        return inventoryService_pb2.GetBookResponse(
+            status=inventoryService_pb2.ServiceStatus.SERVICE_SUCCESS,
             message='Book with ISBN %s returned successfully.' % request.isbn,
             book=book
         )
@@ -101,7 +97,7 @@ def startServer(port):
     # Instantiate the server
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
     # Add the service
-    service.inventoryService_pb2_grpc.add_InventoryServiceServicer_to_server(InventoryService(), server)
+    inventoryService_pb2_grpc.add_InventoryServiceServicer_to_server(InventoryService(), server)
     # Set up the port
     server.add_insecure_port('[::]:' + str(port))
     # Start the server
