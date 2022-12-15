@@ -1,1 +1,1 @@
-PYTHONPATH=service python3 service/inventoryServer.py
+PYTHONPATH=service python3 service/inventoryService_server.py

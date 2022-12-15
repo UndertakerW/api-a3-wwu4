@@ -7,7 +7,7 @@ sys.path.append(parent)
 
 import service.inventoryService_pb2
 import service.inventoryService_pb2_grpc
-import service.inventoryServer
+import service.inventoryService_server
 
 
 class InventoryClient:
@@ -21,7 +21,7 @@ class InventoryClient:
     # return: (int) status
     #         (string) message
     #         (Book) book, the book fetched from the server if successful
-    def getBookFromServer(self, isbn):
+    def get_book_from_server(self, isbn):
         request = service.inventoryService_pb2.GetBookRequest(isbn=isbn)
         response = self.stub.GetBook(request)
         # Return book if successful
