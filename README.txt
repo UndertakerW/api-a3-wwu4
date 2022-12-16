@@ -1,3 +1,8 @@
+To install requirements:
+
+	pip install -r requirements.txt
+
+
 To compile proto:
 
 	pip install -e ./
