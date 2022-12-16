@@ -1,4 +1,3 @@
 grpcio==1.39.0
 grpcio-tools==1.39.0
 protobuf==3.20.1
--e git+https://github.com/UndertakerW/api-a3-wwu4.git@37ed5146c67703feccf55a8fa4eae1686e9ae7e3#egg=testpkg
